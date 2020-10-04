@@ -6,12 +6,9 @@ public class Task025Impl implements Task025 {
         if (sourceMessage == null) {
             throw new IllegalArgumentException();
         }
-        if (sourceMessage.length() % 3 != 0) {
-            throw new IllegalArgumentException();
-        }
 
         StringBuilder target = new StringBuilder();
-        for (int i = 0; i < sourceMessage.length() / 3; i++) {
+        for (int i = 0; i < sourceMessage.length() / 2; i++) {
             target.append("SOS");
         }
 

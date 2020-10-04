@@ -3,6 +3,7 @@ package com.epam.university.java.core.task027;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Task027Impl implements Task027 {
@@ -16,12 +17,13 @@ public class Task027Impl implements Task027 {
             return new ArrayList<>();
         }
 
-        Set<Integer> resultList = new HashSet<>();
+        Set<Integer> resultList = new LinkedHashSet<>();
 
         int range = 1;
         String newStr = sourceString.substring(range);
         String current = sourceString.substring(0, range);
         Integer curInt = Integer.parseInt(current);
+
         StringBuilder target = new StringBuilder();
         while (newStr.length() != 0) {
             String next = curInt + 1 + "";

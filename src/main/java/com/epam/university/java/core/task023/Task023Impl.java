@@ -20,11 +20,16 @@ public class Task023Impl implements Task023 {
         if (phoneString == null) {
             throw new IllegalArgumentException();
         }
+
+        if (phoneString.startsWith("+")) {
+            phoneString = phoneString.substring(1);
+        }
+
         if (!phoneString.matches("(\\D*\\d){11}") || phoneString.length() == 0) {
             throw new IllegalArgumentException();
         }
 
-        Pattern p = Pattern.compile("(?<=7|8|\\(| )(\\d{3})(?<=\\)|)");
+        Pattern p = Pattern.compile("(?<=7|8|-|\\(| )(\\d{3})(?<=-|\\)|)");
         Matcher m = p.matcher(phoneString);
 
         m.find();

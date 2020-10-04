@@ -26,7 +26,9 @@ public class Task026Impl implements Task026 {
                 int begIndex = alphabet.contains(chars[i])
                         ? alphabet.indexOf(chars[i]) : alphabetUpperCase.indexOf(chars[i]);
                 int nowIndex = begIndex + shift;
-                nowIndex = nowIndex >= alphabet.size() ? nowIndex - alphabet.size() : nowIndex;
+                while (nowIndex >= alphabet.size()) {
+                    nowIndex = nowIndex - alphabet.size();
+                }
                 chars[i] = alphabet.contains(chars[i])
                         ? alphabet.get(nowIndex) : alphabetUpperCase.get(nowIndex);
             } else {
@@ -45,7 +47,9 @@ public class Task026Impl implements Task026 {
                 int begIndex = alphabet.contains(chars[i])
                         ? alphabet.indexOf(chars[i]) : alphabetUpperCase.indexOf(chars[i]);
                 int nowIndex = begIndex - shift;
-                nowIndex = nowIndex < 0 ? alphabet.size() + nowIndex : nowIndex;
+                while (nowIndex < 0) {
+                    nowIndex = nowIndex + alphabet.size();
+                }
                 chars[i] = alphabet.contains(chars[i])
                         ? alphabet.get(nowIndex) : alphabetUpperCase.get(nowIndex);
             } else {
