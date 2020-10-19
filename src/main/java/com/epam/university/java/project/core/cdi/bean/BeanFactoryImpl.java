@@ -26,7 +26,7 @@ public class BeanFactoryImpl implements BeanFactory {
         for (BeanDefinition bean : beans) {
             Class<?> clazz = null;
             try {
-                 clazz = Class.forName(bean.getClassName());
+                clazz = Class.forName(bean.getClassName());
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
