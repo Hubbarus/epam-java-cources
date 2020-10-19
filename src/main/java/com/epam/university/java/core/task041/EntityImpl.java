@@ -26,8 +26,12 @@ public class EntityImpl implements Entity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof EntityImpl)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof EntityImpl)) {
+            return false;
+        }
         EntityImpl entity = (EntityImpl) o;
         return Objects.equals(getValue(), entity.getValue());
     }
