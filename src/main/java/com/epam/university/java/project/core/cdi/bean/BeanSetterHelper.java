@@ -89,6 +89,10 @@ public class BeanSetterHelper {
                 MapDefinition definition = (MapDefinition) property.getData();
                 Collection<MapDefinition.MapEntryDefinition> values = definition.getValues();
                 for (MapDefinition.MapEntryDefinition entry : values) {
+
+                    if (entry.getRef() != null) {
+                        throw new RuntimeException();
+                    }
                     map.put(entry.getKey(), entry.getValue());
                 }
 
