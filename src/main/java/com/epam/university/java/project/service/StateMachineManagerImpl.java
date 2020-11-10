@@ -1,8 +1,9 @@
-package com.epam.university.java.project.core.state.machine.manager;
+package com.epam.university.java.project.service;
 
 import com.epam.university.java.project.core.cdi.io.Resource;
 import com.epam.university.java.project.core.state.machine.domain.StateMachineDefinition;
 import com.epam.university.java.project.core.state.machine.domain.StatefulEntity;
+import com.epam.university.java.project.core.state.machine.manager.StateMachineManager;
 
 public class StateMachineManagerImpl implements StateMachineManager {
     @Override
