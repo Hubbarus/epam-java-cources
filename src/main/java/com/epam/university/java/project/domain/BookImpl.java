@@ -85,26 +85,39 @@ public class BookImpl implements Book {
     }
 
     @Override
-    public void setStateMachineDefinition(StateMachineDefinition<BookStatus, BookEvent> definition) {
+    public void setStateMachineDefinition(StateMachineDefinition<BookStatus,
+            BookEvent> definition) {
         this.definition = definition;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BookImpl)) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof BookImpl)) {
+            return false;
+        }
+
         BookImpl book = (BookImpl) o;
-        return getId() == book.getId() &&
-                Objects.equals(getTitle(), book.getTitle()) &&
-                Objects.equals(getAuthors(), book.getAuthors()) &&
-                Objects.equals(getSerialNumber(), book.getSerialNumber()) &&
-                Objects.equals(getReturnDate(), book.getReturnDate()) &&
-                status == book.status &&
-                Objects.equals(definition, book.definition);
+        return getId() == book.getId()
+                && Objects.equals(getTitle(), book.getTitle())
+                && Objects.equals(getAuthors(), book.getAuthors())
+                && Objects.equals(getSerialNumber(), book.getSerialNumber())
+                && Objects.equals(getReturnDate(), book.getReturnDate())
+                && status == book.status
+                && Objects.equals(definition, book.definition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getAuthors(), getSerialNumber(), getReturnDate(), status, definition);
+        return Objects.hash(getId(),
+                getTitle(),
+                getAuthors(),
+                getSerialNumber(),
+                getReturnDate(),
+                status,
+                definition);
     }
 }
