@@ -1,4 +1,41 @@
 package com.epam.university.java.project.core.state.machine.domain;
 
-public class StateMachineDefinitionBuilderImpl {
+import com.epam.university.java.project.domain.BookEvent;
+import com.epam.university.java.project.domain.BookStatus;
+
+public class StateMachineDefinitionBuilderImpl
+        implements StateMachineDefinitionBuilder<BookStatus, BookEvent> {
+    private final StateMachineDefinition<BookStatus, BookEvent> definition
+            = new StateMachineDefinitionImpl();
+
+    @Override
+    public StateMachineDefinition<BookStatus, BookEvent> build() {
+        return definition;
+    }
+
+    @Override
+    public StateMachineDefinitionBuilder<BookStatus, BookEvent> addState(BookStatus from,
+                                                                         BookStatus to,
+                                                                         BookEvent on,
+                                                                         String method) {
+        StateMachineState<BookStatus, BookEvent> state = new StateMachineStateImpl();
+        state.setFrom(from);
+        state.setTo(to);
+        state.setOn(on);
+        state.setMethodToCall(method);
+        definition.addState(state);
+        return this;
+    }
+
+    @Override
+    public StateMachineDefinitionBuilder<BookStatus, BookEvent> addState(BookStatus from,
+                                                                         BookStatus to,
+                                                                         BookEvent on) {
+        StateMachineState<BookStatus, BookEvent> state = new StateMachineStateImpl();
+        state.setFrom(from);
+        state.setTo(to);
+        state.setOn(on);
+        definition.addState(state);
+        return this;
+    }
 }
