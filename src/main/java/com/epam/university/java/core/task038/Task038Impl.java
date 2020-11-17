@@ -10,6 +10,10 @@ import java.util.Set;
 public class Task038Impl implements Task038 {
     @Override
     public Graph invokeActions(Graph sourceGraph, Collection<GraphAction> actions) {
+        if (actions == null || sourceGraph == null || actions.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
         for (GraphAction action : actions) {
             action.run(sourceGraph);
         }
@@ -18,6 +22,10 @@ public class Task038Impl implements Task038 {
 
     @Override
     public Collection<Vertex> getShortestPath(Graph graph, int startId, int endId) {
+        if (graph == null) {
+            throw new IllegalArgumentException();
+        }
+
         GraphImpl tmpGraph = (GraphImpl) graph;
         List<VertexImpl> vertices = tmpGraph.getVertexList();
 

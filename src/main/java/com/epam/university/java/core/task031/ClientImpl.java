@@ -17,6 +17,7 @@ public class ClientImpl implements Client {
     @Override
     public void sendMessage(String message) {
         if (message == null) {
+            stop();
             throw new IllegalArgumentException();
         }
         try {
