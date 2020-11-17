@@ -86,13 +86,6 @@ public class Task021Impl implements Task021 {
         BigDecimal resultY = a2.multiply(c1).subtract(a1.multiply(c2));
         resultY = resultY.divide(d, 15, RoundingMode.HALF_UP);
 
-//        double resultYd = Double.compare(
-//                resultY.doubleValue(), 1.7886751345948129) == 0
-//                ? 1.788675134594813 : resultY.doubleValue();
-//        resultYd = Double.compare(
-//                resultY.doubleValue(), -0.4226497308103742) == 0
-//                ? -0.42264973081037427 : resultYd;
-
         point.setY(resultY.doubleValue());
         point.setX(resultX.doubleValue());
 

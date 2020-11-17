@@ -16,6 +16,9 @@ public class ClientImpl implements Client {
 
     @Override
     public void sendMessage(String message) {
+        if (message == null) {
+            throw new IllegalArgumentException();
+        }
         try {
             writer = new PrintWriter(server.getOutputStream(),true);
             writer.println(message);
