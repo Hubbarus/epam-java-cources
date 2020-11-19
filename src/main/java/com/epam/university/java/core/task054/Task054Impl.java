@@ -1,7 +1,7 @@
 package com.epam.university.java.core.task054;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.io.File;
@@ -9,18 +9,21 @@ import java.io.IOException;
 
 public class Task054Impl implements Task054 {
     BufferedImage resultImage;
+
     @Override
     public BufferedImage grayscaleFilter(String inputFilePath, String outputFilePath) {
         BufferedImage image = originalImage(inputFilePath);
 
         if (image != null) {
-            resultImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+            resultImage = new BufferedImage(image.getWidth(),
+                    image.getHeight(),
+                    BufferedImage.TYPE_INT_RGB);
             for (int i = 0; i < image.getHeight(); i++) {
                 for (int j = 0; j < image.getWidth(); j++) {
                     Color color = new Color(image.getRGB(j, i), true);
-                    int red = (int)(color.getRed() * 0.299);
-                    int green = (int)(color.getGreen() * 0.587);
-                    int blue = (int)(color.getBlue() *0.114);
+                    int red = (int) (color.getRed() * 0.299);
+                    int green = (int) (color.getGreen() * 0.587);
+                    int blue = (int) (color.getBlue() * 0.114);
 
                     int rgb = red + green + blue;
                     Color newColor = new Color(rgb, rgb, rgb);
@@ -42,7 +45,9 @@ public class Task054Impl implements Task054 {
         BufferedImage original = originalImage(inputFilePath);
 
         if (original != null) {
-            resultImage = new BufferedImage(original.getWidth(), original.getHeight(), BufferedImage.TYPE_INT_RGB);
+            resultImage = new BufferedImage(original.getWidth(),
+                    original.getHeight(),
+                    BufferedImage.TYPE_INT_RGB);
             for (int i = 0; i < original.getHeight(); i++) {
                 for (int j = 0; j < original.getWidth(); j++) {
                     Color color = new Color(original.getRGB(j, i), true);
@@ -85,9 +90,11 @@ public class Task054Impl implements Task054 {
         BufferedImage original = originalImage(inputFilePath);
 
         if (original != null) {
-            resultImage = new BufferedImage(original.getWidth(), original.getHeight(), BufferedImage.TYPE_INT_RGB);
-            for(int j = 0; j < original.getHeight(); j++){
-                for(int i = 0, w = original.getWidth() - 1; i < original.getWidth(); i++, w--){
+            resultImage = new BufferedImage(original.getWidth(),
+                    original.getHeight(),
+                    BufferedImage.TYPE_INT_RGB);
+            for (int j = 0; j < original.getHeight(); j++) {
+                for (int i = 0, w = original.getWidth() - 1; i < original.getWidth(); i++, w--) {
                     int p = original.getRGB(i, j);
                     resultImage.setRGB(w, j, p);
                 }
